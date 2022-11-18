@@ -12,7 +12,6 @@ let validKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 let tildes = {'Á': 'A', 'É': 'E', 'Í' : 'I', 'Ó': 'O', 'Ú': 'U'}
 
 let palabra = WORDS[randomNumber()]
-
 palabra = palabra.toUpperCase().split("")
 
 for (let i=0;i<=palabra.length;i++){
@@ -47,6 +46,7 @@ function randomNumber(){
 function checkLetters(char){
         for(let i = 0;i<=palabra.length;i++){
             if (!palabra.includes(char)){
+                shake(document.body)
                 changeImage()
                 changeButton(char, true)
                 break
@@ -88,6 +88,12 @@ function changeButton(letra, bool){
             break
         }
     }
+}
+
+async function shake(element){
+    element.className = "shake"
+    await new Promise(r => setTimeout(r, 250));
+    element.className = ""
 }
 
 charButtons.addEventListener('click', (e) => {

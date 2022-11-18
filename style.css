@@ -23,6 +23,7 @@ body {
     grid-template-rows: 2fr 1fr 0.5fr;
     justify-content: center;
     background: #333;
+    overflow: hidden
 }
 
 .container-image {
@@ -96,3 +97,12 @@ span {
     color: white;
     font-weight: bold;
 }
+
+.shake {animation: horizontal-shaking 250ms linear; }
+
+@keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    33% { transform: translateX(5px) }
+    66% { transform: translateX(-5px) }
+    100% { transform: translateX(0) }
+   }
