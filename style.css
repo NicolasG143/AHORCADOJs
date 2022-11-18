@@ -96,6 +96,7 @@ span {
     margin-block-end: 1rem;
     color: white;
     font-weight: bold;
+    font-size: 2rem;
 }
 
 .shake {animation: horizontal-shaking 250ms linear; -webkit-animation: horizontal-shaking 250ms linear;}
