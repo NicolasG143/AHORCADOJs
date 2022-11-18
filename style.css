@@ -65,6 +65,7 @@ body {
     background-color: rgb(132, 132, 132);
 }
 
+
 .char-button:active {
     box-shadow: inset 1px 1px 2px #333, inset -1px -1px 4px rgb(193, 193, 193);
 }
@@ -88,3 +89,10 @@ button {
     font-size: 2rem;
 }
 
+span {
+    display: flex;
+    justify-content: center;
+    margin-block-end: 1rem;
+    color: white;
+    font-weight: bold;
+}
