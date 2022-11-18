@@ -98,11 +98,18 @@ span {
     font-weight: bold;
 }
 
-.shake {animation: horizontal-shaking 250ms linear; }
+.shake {animation: horizontal-shaking 250ms linear; -webkit-animation: horizontal-shaking 250ms linear;}
 
 @keyframes horizontal-shaking {
     0% { transform: translateX(0) }
     33% { transform: translateX(5px) }
     66% { transform: translateX(-5px) }
     100% { transform: translateX(0) }
-   }
+}
+
+@-webkit-keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    33% { transform: translateX(5px) }
+    66% { transform: translateX(-5px) }
+    100% { transform: translateX(0) }
+}
