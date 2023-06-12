@@ -139,12 +139,16 @@ function changeButton(letra, bool) {
 function newGame() {
   let c = charButtons.children;
   tries = -1;
+  won = false;
   changeImage();
   newWord();
   addWord();
   for (const child of c) {
     child.style.backgroundColor = "";
   }
+  game_state.children[0].classList.add("none");
+  game_state.children[1].classList.add("none");
+  pressedKeys = [];
   game_state.parentElement.classList.add("none");
 }
 

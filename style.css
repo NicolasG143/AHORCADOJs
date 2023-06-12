@@ -87,8 +87,23 @@ body {
 }
 
 button {
-  padding: 10px;
+  padding: 16px;
   font-size: 2rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 250ms ease-in;
+}
+
+button:hover {
+  background-color: #13f9;
+  color: white;
+  scale: 1.05;
+}
+
+button:active {
+  scale: 0.95;
 }
 
 span {
@@ -152,6 +167,11 @@ span {
 .end-word {
   font-size: clamp(32px, 10vw, 7rem);
   text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+
+h2.end-word {
+  color: #f9f;
 }
 
 .none {
