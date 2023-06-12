@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container-image">
-        <img src="./imgs/0.png" alt="" class="image">
+      <img src="./imgs/0.png" alt="" class="image" />
     </div>
     <span class="fails">Errores: 0/6</span>
-    <div class="container-word">
+    <div class="container-word"></div>
 
-    </div>
-
-    <div class="container-buttons-chars">
-        
-    </div>
+    <div class="container-buttons-chars"></div>
 
     <div class="game-end none">
-        <div class="game-state">
-            <h1 class="win none" style="color: limegreen">¡Ganaste!</h1>
-            <h1 class="lose none" style="color: red">¡Perdiste!</h1>
-            <h2 class="end-word">La palabra era: </h2>
-        </div>
-        <div class="game-restart">
-            <button type="button" class="restart" onclick="newGame()">Reiniciar</button>
-        </div>
+      <div class="game-state">
+        <h1 class="win none" style="color: limegreen">¡Ganaste!</h1>
+        <h1 class="lose none" style="color: red">¡Perdiste!</h1>
+        <h2 class="end-word">
+          La palabra era:
+          <h2 id="correct_word" class="end-word"></h2>
+        </h2>
+      </div>
+      <div class="game-restart">
+        <button type="button" class="restart">Reiniciar</button>
+      </div>
     </div>
 
     <!-- <div class="container-button">
         <button class="reset">Otra palabra</button>
     </div> -->
     <script type="module" src="./main.js"></script>
-</body>
+  </body>
 </html>
