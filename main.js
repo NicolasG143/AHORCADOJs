@@ -5,32 +5,39 @@ let charButtons = document.querySelector(".container-buttons-chars")
 let image = document.querySelector(".image")
 let tries = 0
 let won = false
+let game_state = document.querySelector(".game-state")
 let errores = document.querySelector(".fails")
 let pressedKeys = []
-let validKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+const validKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
-let tildes = {'Á': 'A', 'É': 'E', 'Í' : 'I', 'Ó': 'O', 'Ú': 'U'}
+const tildes = {'Á': 'A', 'É': 'E', 'Í' : 'I', 'Ó': 'O', 'Ú': 'U'}
 
-let palabra = WORDS[randomNumber()]
-palabra = palabra.toUpperCase().split("")
+let char = '<div class="char">_</div>'
+let palabra = ""
+newWord()
+addWord()
+console.log(palabra)
 
-for (let i=0;i<=palabra.length;i++){
+/*for (let i=0;i<=palabra.length;i++){
     if (tildes[palabra[i]] != undefined){
         palabra[i] = tildes[palabra[i]]
     }
+}*/
+
+function newWord(){
+    palabra = WORDS[randomNumber()].toUpperCase().split("").map((a) => tildes[a] || a).join('')
+    console.log(palabra)
+    
 }
 
-for (const i of palabra) {
-    let char = '<div class="char">_</div>'
-    if(i == " "){
-        char = '<div class="char" style="border: none"></div>'
+function addWord(){
+    for (const i of palabra){
+        if(i == " "){
+            char = '<div class="char" style="border: none"></div>'
+        }
+        game.innerHTML += char
     }
-    game.innerHTML += char
 }
-
-console.log(palabra.join(''))
-
-palabra = palabra.join('')
 
 for(let i = 65; i<=90;i++){
     charButtons.innerHTML += `<div class="char-button">${String.fromCharCode(i)}</div>`
@@ -52,7 +59,6 @@ function checkLetters(char){
                 break
             }
             if (palabra[i] === char){
-                console.log(game.children[i]);
                 game.children[i].innerHTML = char
                 changeButton(char, false)
                 won = checkWin()
@@ -75,8 +81,7 @@ function changeImage(){
     if (tries < 6){
         tries += 1
         errores.innerHTML = `Errores: ${tries}/6`
-        console.log(tries)
-        image.setAttribute('src', `./imgs/${tries}.png`)
+        image.src = `./imgs/${tries}.png`
     }
 }
 
@@ -88,6 +93,11 @@ function changeButton(letra, bool){
             break
         }
     }
+}
+
+function newGame(){
+    newWord()
+    addWord()
 }
 
 async function shake(element){
@@ -106,7 +116,16 @@ document.addEventListener('keypress', (e) => {
         if (!pressedKeys.includes(letra)){
             checkLetters(letra)
             pressedKeys.push(letra)
-            console.log(letra)
         }
+    }
+    if (won) {
+        game_state.parentElement.classList.remove("none")
+        game_state.children[0].classList.remove("none")
+        game_state.children[2].innerHTML += palabra
+    }
+    else if(!won && tries >= 6) {
+        game_state.parentElement.classList.remove("none")
+        game_state.children[1].classList.remove("none")
+        game_state.children[2].innerHTML += palabra
     }
 })
