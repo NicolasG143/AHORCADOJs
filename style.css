@@ -92,12 +92,17 @@ body::before {
   gap: 32px 64px;
 }
 
+/* White paint drops out so the drawing sits on the grid paper.
+   Blend the figure, not the img: the shake transform makes the figure a
+   stacking context, which would isolate an img-level blend from the paper. */
+.gallows {
+  mix-blend-mode: multiply;
+}
+
 .gallows img {
   display: block;
   height: clamp(220px, 52vh, 400px);
   width: auto;
-  /* White paint drops out so the drawing sits on the grid paper */
-  mix-blend-mode: multiply;
 }
 
 .board {
