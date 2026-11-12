@@ -1,40 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Cache-control" content="no-cache" />
-    <meta http-equiv="Expires" content="-1" />
-    <title>Arcohado JS</title>
+    <meta name="color-scheme" content="light" />
+    <title>Ahorcado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Shantell+Sans:wght@400..700&display=swap"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container-image">
-      <img src="./imgs/0.png" alt="" class="image" />
-    </div>
-    <span class="fails">Errores: 0/6</span>
-    <div class="container-word"></div>
+    <main class="page">
+      <header class="page-head">
+        <h1 class="title">Ahorcado</h1>
+        <p class="date" id="date"></p>
+      </header>
 
-    <div class="container-buttons-chars"></div>
+      <section class="play">
+        <figure class="gallows" id="gallows">
+          <img
+            id="drawing"
+            src="./imgs/0.png"
+            width="190"
+            height="287"
+            alt="Horca vacía"
+          />
+        </figure>
 
-    <div class="game-end none">
-      <div class="game-state">
-        <h1 class="win none" style="color: limegreen">¡Ganaste!</h1>
-        <h1 class="lose none" style="color: red">¡Perdiste!</h1>
-        <h2 class="end-word">
-          La palabra era:
-          <span id="correct_word" class="end-word"></span>
-        </h2>
-      </div>
-      <div class="game-restart">
-        <button type="button" class="restart">Reiniciar</button>
-      </div>
-    </div>
+        <div class="board">
+          <p class="hint" id="hint"></p>
+          <div class="word" id="word" role="img"></div>
 
-    <!-- <div class="container-button">
-        <button class="reset">Otra palabra</button>
-    </div> -->
+          <div class="lives">
+            <ol class="tally" id="tally" aria-hidden="true"></ol>
+            <span id="livesText"></span>
+          </div>
+
+          <div class="result" id="result" hidden>
+            <p class="verdict" id="verdict"></p>
+            <button type="button" class="next" id="next">Otra palabra</button>
+            <p class="next-tip">o apretá Enter</p>
+          </div>
+
+          <div class="keyboard" id="keyboard" aria-label="Letras"></div>
+        </div>
+      </section>
+
+      <footer class="score" id="score"></footer>
+      <p class="sr-only" id="live" aria-live="polite"></p>
+    </main>
+
     <script type="module" src="./main.js"></script>
   </body>
 </html>
